@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah data</title>
+    <style>
+        * {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ubah data siswa</h1>
+
+    <form action="" method="post">
+        <input type="hidden" name="id" value="<?= $siswa["id"]; ?>">
+        <ul>
+            <li>
+                <label for="nama">Nama : </label>
+                <br>
+                <input type="text" name="nama" id="nama" required value="<?= $siswa["nama"]; ?>">
+            </li>
+            <br>
+            <li>
+                <label for="jeniskelamin">Jenis Kelamin</label>
+                <br>
+                <select name="jeniskelamin" id="jeniskelamin">
+                    <option <?php if($siswa['jeniskelamin'] == 'L'){echo "selected";}?> value="L">Laki-laki</option>
+                    <option <?php if($siswa['jeniskelamin'] == 'P'){echo "selected";}?> value="P">Perempuan</option>
+                </select>
+                <!-- <input type="text" name="jeniskelamin" id="jeniskelamin" required value="<?= $siswa["jeniskelamin"]; ?>"> -->
+            </li>
+            <br>
+            <li>
+                <label for="alamat">Alamat</label>
+                <br>
+                <input type="text" name="alamat" id="alamat" required value="<?= $siswa["alamat"]; ?>">
+            </li>
+            <br>
+            <li>
+                <label for="kelas">Kelas</label>
+                <select name="kelas" id="kelas">
+                    <option <?php if($siswa['kelas'] == 'X'){echo "selected";}?> value="X">X</option>
+                    <option <?php if($siswa['kelas'] == 'XI'){echo "selected";}?> value="XI">XI</option>
+                    <option <?php if($siswa['kelas'] == 'XII'){echo "selected";}?> value="XII">XII</option>
+                </select>
+                <!-- <input type="text" name="kelas" id="kelas" required value="<?= $siswa["kelas"]; ?>"> -->
+            </li>
+            <br>
+            <li>
+                <button type="submit" name="submit">Ubah Data</button>
+            </li>
+        </ul>
+    </form>
+    <a href="home.php">Kembali</a>
+</body>
+
+</html>
+
+confirm('yakin?') href="delete.php?id=<?= $row["id"]; ?>"
+<?php
+    $id = $_GET["id"];
+
+    if (hapus($id) > 0) {
+        echo "
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: 'You won't be able to revert this!',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                          )
+                          document.location.href = 'home.php';
+                        }
+                      })
+                    </script>
+                ";
+    }
+    ?>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    </html>
